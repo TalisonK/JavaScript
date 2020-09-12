@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Verificador de Idade</title>
+    <link rel="stylesheet" href="estilo.css">
+</head>
+
+<body onload="load()">
+
+    <header>
+        <h1>Verificador de Idade</h1>
+    </header>
+
+
+    <section id="p">
+        <div>
+            <p>
+                Ano de nascimento:
+                <input type="date" name="data" id="data" max="2019-12-31">
+            </p>
+            <p2>
+                Sexo:
+                <input type="radio" name="M" id="mas" checked>
+                <label for="mas">Masculino</label>
+                <input type="radio" name="F" id="fem">
+                <label for="mas">Feminino</label>
+            </p2>
+
+        </div>
+        <input id="botao" type="button" value="Calcular" onclick="verificar()">
+        <div>
+
+        </div>
+
+    </section>
+
+    <section id="s">
+        <div>
+            <p1 id="res">Resultados..</p1>
+        </div>
+    </section>
+
+    <footer>
+        <p> &copy; Kenin Monstrão </p>
+    </footer>
+
+    <script src=script.js></script>
+
+</body>
+
+</html>

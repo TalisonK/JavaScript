@@ -1,0 +1,228 @@
+.login__body {
+    font: 1rem Roboto bold;
+    position: fixed;
+    top: 0;
+    left: 0;
+    display: flex;
+    flex-direction: row;
+    justify-items: center;
+    align-items: center;
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    height: 100vh;
+    background-color: rgb(101, 235, 125);
+
+}
+
+.login__section {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 40%;
+    margin-left: 30%;
+    
+}
+  
+  .login__mensagem__erro{
+    margin-bottom: 20px;
+    background: #f76e40;
+    border: 0.5px solid #852100;
+    width: 90%;
+    padding: 5px;
+    border-radius: 5px;
+    text-align: center;}
+  
+    .login__mensagem__suss{
+    margin-bottom: 20px;
+    background: #65f852;
+    border: 0.5px solid #0d4b0b;
+    width: 90%;
+    padding: 5px;
+    border-radius: 5px;
+    text-align: center;}
+
+  .login__titulo {
+    font-size: 32px;
+    letter-spacing: 1px;
+    margin: 20px 0;
+    margin-bottom: 60px;
+    color: rgb(0, 0, 0);
+  }
+  
+  .login__form {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    width: 100%;
+    margin: 20px 0;
+    align-items: center;
+    background-color: white;
+    padding: 30px 25px;
+    border-radius: 5px;
+    height: 300px;
+  }
+
+  .login__form label {
+      color: rgb(163, 90, 231);
+      margin-bottom: 3px;
+  }
+
+
+  .login__form input {
+    margin-bottom: 30px;
+      padding: 8px 10px;
+      border: 1px solid #ccddef;
+      text-align: center;
+  }
+
+  .login__botoes {
+    padding: 0%;
+    list-style: none;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+  }
+
+  .login__botoes li {
+    padding: 6px;
+    margin-right: 5px;
+    background-color: #19a532;
+    border-radius: 10px;
+    cursor: pointer;
+  }
+
+  .login__turma__form{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    height: 9%;
+    align-items: center;
+    width: 40%;
+  }
+
+  .Turmas{
+    padding-right: 5px;
+    color: rgb(163, 90, 231);
+  }
+
+  .login__turma__input{
+    cursor: pointer;
+  }
+  .login__turma__input:hover,
+  .Turmas:hover{
+    cursor: pointer;
+    color: rgb(248, 192, 87);
+  }
+  .login__turma__input:active{
+    color: rgb(92, 45, 92);
+  }
+
+
+
+
+  /* //animações */
+
+  .login__botoes li:hover,
+  .login__botoes li:active{
+    color: rgb(241, 219, 19);
+  
+  }
+  .login__botoes li:active{
+    background-color: rgb(45, 107, 37);
+  }
+
+  .login__form{
+    animation: fade 200ms;
+  }
+  
+  .login__button__Login {
+    animation: movel 1000ms backwards;
+    animation-delay: 800ms;
+  }
+  .login__button__Cadastrar {
+    animation: movec 1000ms backwards;
+    animation-delay: 400ms;
+  }
+  .login__button__Placar {
+    animation: movep 1000ms backwards;
+    animation-delay: 200ms;
+  }
+
+  @keyframes movep {
+    from {
+      opacity: 0;
+      transform: translateX(-295%);
+    }
+    to {
+      opacity: 1;
+      transform: translateX(0%);
+    }
+  }
+  @keyframes movec{
+    from {
+      opacity: 0;
+      transform: translateX(-135%);
+    }
+    to {
+      opacity: 1;
+      transform: translateX(0%);
+    }
+  }
+  @keyframes movel {
+    from {
+      opacity: 0;
+      transform: translateX(-50%);
+    }
+    to {
+      opacity: 1;
+      transform: translateX(0%);
+    }
+  }
+  
+  @keyframes fade {
+    from {
+      opacity: 0;
+      transform: scale(0.9);
+    }
+    to {
+      opacity: 1;
+      transform: scale(1);
+    }
+  }
+  
+  @keyframes down {
+    from {
+      transform: translateY(0);
+    }
+    to {
+      transform: translateY(100vh);
+    }
+  }
+  
+  @keyframes nono {
+    0%,
+    100% {
+      transform: translateX(0);
+    }
+    35% {
+      transform: translateX(-15%);
+    }
+    70% {
+      transform: translateX(15%);
+    }
+  }
+  
+  @keyframes up {
+    from {
+      opacity: 0;
+      transform: translateY(0);
+    }
+    50% {
+      opacity: 1;
+    }
+    to {
+      transform: translateY(-800px) rotate(960deg);
+    }
+  }

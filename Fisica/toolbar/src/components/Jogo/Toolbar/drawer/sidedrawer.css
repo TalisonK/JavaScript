@@ -1,0 +1,53 @@
+.side-drawer{
+    height: 100%;
+    margin-top: 50px;
+    background-color: whitesmoke;
+    border-radius: 10px;
+    position: fixed;
+    top:0;
+    left:0;
+    width: 300px;
+    z-index: 200;
+}
+
+.side-drawer ul {
+    height: 100vh;
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.side-drawer li{
+    margin: 0.5rem 0;
+}
+
+.side-drawer a{
+    color: blueviolet;
+    text-decoration: none;
+    font-size: 1.2rem;
+}
+
+.side-drawer{
+    overflow: hidden;
+}
+
+.side-drawer {
+    animation-name: move;
+    animation-duration: 500ms;
+    
+}
+
+@keyframes move {
+    from
+    {
+        opacity: 0;
+        transform: translateX(-50%);
+    }
+
+    to
+    {
+        opacity: 1;
+        transform: translateX(0%);
+    }
+}

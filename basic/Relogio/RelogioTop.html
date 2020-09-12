@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Relogio Top</title>
+
+    <style>
+        body{
+            background: rgb(255, 255, 255);
+            font: normal 15pt Arial;
+        }
+
+        header{
+            color: white;
+            text-align: center;
+        }
+
+        section{
+            background: whitesmoke;
+            border-radius: 10px;
+            padding: 15px;
+            width: 500px;
+            margin: auto;
+            box-shadow: 3px 4px 10px rgba(0, 0, 0, 0.404);
+        }
+
+        div{
+            text-align: center;
+            padding-bottom: 5px;
+        }
+
+        footer{
+            color: white;
+            text-align: center;     
+        }
+    </style>
+
+</head>
+
+<body onload="construct()">
+
+    <header>
+        <h1>Relógio gente boa</h1>
+    </header>
+
+
+    <section>
+        <div id='mensagem'>
+            Mensagem
+        </div>
+        
+        <div>
+            <img id="imagem" alt="Foto do dia">
+        </div>
+
+    </section>
+
+
+    <footer>
+        <p> &copy; Kenin Monstrão </p>
+    </footer>
+
+    <script>
+
+        function construct(){
+            var msg = document.getElementById("mensagem");
+            var img = document.getElementById("imagem");
+            var data = new Date();
+            var hora = data.getHours();
+            var min = data.getMinutes();
+
+            if(hora >= 0 && hora < 12){ // Manha
+                img.src = 'https://lh3.googleusercontent.com/zoYuFlUjnC6qaQgQ7aHkdfggxuQ522w8ZQA15IWctUOACnvL0xFtT2sdnPhr0LjxqmjV93fy9PnIp6N60eAVYumwjpdkTemnUTqVqY-pdWtUVpiAAbyzqaayVVLezPfKyBS_woHdNgung4qpnAbr3WXkkYewYiij1fIhlNHX-G1kUOR6lLzx0qbjS3sO7x2way4A3xUm9cfySRYVcuTD4BMj-aAGQDA33MTV58YA75_L0jKIbZlD5LSfGdc9TZaorX3xqQ0sFA25pJRJZhy99m7LYPbDmb1_TKMaW5mcPNtrnsn-pX3TlX9XEui1FZRoqUSwYiIdXp_y7gOFLbVToOI5FlGx6QhvOdipkI1cxsQ3KE9iGOeV6946FGos4wGPPFBr6Bj1UISwIn65AkMiPu41I9lQ2O62vcOl1zbKxCxkHkF4lzBKN_ThMMHvmPfgWsgTn6Ng3LMdmtak0s3ytvfIOygU5X7GkEdqc8P9_igqgt_AweHDBVf6uV_ppws01u6ytxeV862ez_fEg2yBrR-zK-oYlfTxrwQKAyvrVzRoPik33OmGvgQejxAOcMDlZPW5RBxO-JR6AMHwTw6bTEINgJx58wrueA7RlugNAK0VV2shLidMTlM9GInyyjv5v1L9aoLO6jWce8ZQH-GVDwzFU_S1u9Z9RHIU0VAbgnpgBIfUwAwPF2ujX_NKRSymfiBf=w200-h190-p-k-nu-ft';
+                msg.innerHTML = `Bom Dia :) são ${hora}:${min}!`;
+                window.document.body.style.backgroundColor = "#decb40";
+
+            }else if(hora < 18){
+                img.src = 'https://lh3.googleusercontent.com/Gqa4d3hjhBlrl2zji4FNVgvtTkBOkW2_Qk4rKfOJ8z8aidqsYovnOmdE2liGG0gaMFYR0TtDXzBxMmhg_s5PvjUl4EsLvvysz04MeZLh1XZ6VJ2sjgCPivkBFmJX46Jqi6dvanCrMzUGGnBZDPfFPFQxrzwnUruo3KNuAOL4mZi52sm2fNGOgsYEuZU3qOKMNPrdfJXKiqATev3i6cAznPCCo0WRUsYyPxh-ap368wtBUM5ti1J4-PEu_OWff7hRwB2yJOSM3aJr8Ib4WrkuiDP8dX-yaUSsdL0PF2YL-1EfQF66BU_mxKFzrUmjktmp-XzRODw_4tRPX7ppc9IVn6e3zTyg9StnNYLy2W9dvtB32llLSot4OqJMjDsWEqu7ixz164e8vSc8nXeNGsh9qBzSp_KfUL91W8mTaXgbhV6mp5FkrmGFR10BuNJxwNZTjLpDq7StRXJsM3Olw2n3IKS7_HaERJ10FKsOgRoJ8wFPDJroOFeKIWVk8jHDgOVtma51POfiqwMNHujhQERIlNT_Ye8anHRQCA30A2ybzL_0PJAFdkf7CwrE8SZFQqEm2ogELTcojy5aMZgE81UWCjqUh24hR1aI8KarAN-RNTeVdsndLGUbQsjQObfOuocjZWEVNfobOkKqP_giYnRsYxbZk0hitO3UMCYtXLt3dRydf_Xe1WpLpctFnYzmKY6x1OHU=w712-h625-ft';
+                msg.innerHTML = `Boa tarde :) são ${hora}:${min}!`;
+                window.document.body.style.backgroundColor = "#ed915f";
+            }else{
+                img.src = "https://lh3.googleusercontent.com/idvUdRcLwSnzNiN81TJexN3O06hCF2hgMvIJWFCp02NjMBod41X-Lb4XrST_PdDwNXGYrUipJn_75wRamKrV2X9hXWMpDbRWZUYjLHRd_o87-4YzOW2htu_gSyadModIDBPRnNFi01kuMEyzDzP5d58kf6Y9Ri5IENfSf_G0rjPazTyuF8mFMFep7m0SAxgYoXMy0rmHNoG_LcdUhlCQV7psmDmLJze-z7uZqaGwqxG4Gc26XQxs2uvEFjgpfVlhU_8tkMVtNsF8usjccp1W4nfgQXd6ADGOh5Z_rm95y3QY9PTJmw652BQw5uav8W3D5PXxhOjD1tUIh2KS7lftX20zgkWjGPRdf27VE_h-eYAR1Scl_ObaXNIjRjzWUt_2yzBsNuXRDPTqfcG2lDa27pwFUCl-ZMr5K1Q5EJp5ofWX1c4kXj5h6nxMRHwxt0kIrXK3eoFPB3capAcorKirYYgsRgxQPzBkeldXgaGW7pnju5em7lWOX-leBIjnvtwf8JO6xXZxN3T1M-SwA7Pg3OjWd6gdL7iom9bXC_TKRnMyGdSYsHMKgSVKQFVRqvgBuCfvrW11da1rChiWPBpUlfee50_hy0kwYMQwH31CORJlpCgAod1nSdPgiR2_ra_tDKcANu9O3Hdhbdc51Smu9PgCLRzZ6Y4lfAR6zDtcmTnOQB2M8zrz7Ppr1XKXDJ9yG-zv=w1366-h625-ft";
+                msg.innerHTML = `Boa noite :) são ${hora}:${min}!`;
+                window.document.body.style.backgroundColor = "#465054";
+            }
+        }
+    </script>
+
+</body>
+</html>

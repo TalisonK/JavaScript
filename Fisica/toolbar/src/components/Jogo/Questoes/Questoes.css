@@ -1,0 +1,57 @@
+.sect{
+    top: 0;
+    left: 0;
+    position:fixed;
+    margin-top: 50px;
+    display: fixed;
+    width: 100%;
+    height: 80vh;
+}
+
+.questao{
+    background-color: white;
+    display: table;
+    width: 60%;
+    float: left;
+    padding: 0.5%;
+}
+
+.alternativas{
+    background-color: aqua;
+    display: table;
+    width: 29%;
+    float: left;
+}
+
+
+@media (max-width: 1175px){
+    .lista{
+        font-size: 0.8em;
+    }
+}
+
+@media (max-width: 910px) {
+    .lista{
+        display: none;
+    }
+    .questao{
+        width: 69%;
+        font-size: 0.7rem;
+    }
+    .alternativas{
+        width: 30%;
+        font-size: 0.7rem;
+    }
+}
+
+@media (max-width: 550px) {
+    .questao{
+        width: 100%;
+        padding-bottom: 20px;
+    }
+    .alternativas{
+        width: 100%;
+        display: block;
+        float: none;
+    }
+}

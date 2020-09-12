@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Somador</title>
+
+    <style>
+
+        body{
+            font: bold 18pt Arial;
+            background-color: cornflowerblue;
+        }
+        header{
+           width: 300px;
+           padding: 10px;
+           border-radius: 8px;
+           text-align: center;
+           margin: auto;
+           font: normal 26pt Arial;
+
+        }
+        
+        section{
+            background: rgba(89, 89, 250, 0.76);
+            border-radius: 15px;
+            width: 500px;
+            margin: auto;
+            height: 400px;
+            font: bold 18pt Arial;
+            text-align: center;
+            box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.356);
+        }
+        input#t1{
+            margin: auto;
+            margin-top: 80px;
+        }
+
+        input#botao{
+            margin-top: 50px;
+        }
+
+        div#res{
+            margin-top: 100px;
+        }
+    </style>
+
+</head>
+<body>
+    <header>
+        Somando valores!
+    </header>
+
+
+    <section>
+        <input type="number" name="txtn1" id="t1"> + 
+        <input type="number" name="txtn2" id="t2"> </br>
+        <input type="button" id="botao" value="Somar" onclick="somar()">
+
+        <div id="res">
+            Resultado!
+        </div>
+
+    </section>
+
+    
+
+    <script>
+        function somar(){
+            var Resultado = document.getElementById('res');
+            var n1 = document.getElementById('t1');
+            var n2 = document.getElementById('t2');
+            var num1 = Number(n1.value);
+            var num2 = Number(n2.value);
+            var soma = num1 + num2;
+            Resultado.innerHTML = `O resultado da soma entre ${num1} mais ${num2} é ${soma}!`
+        }
+    </script>
+
+</body>
+</html>

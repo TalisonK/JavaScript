@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Horas</title>
+    <link rel="stylesheet" href="estilo.css">
+</head>
+<body onload="construct()">
+
+    <header>
+        <h1>Relógio gente boa</h1>
+    </header>
+
+
+    <section>
+        <div id='mensagem'>
+            Mensagem
+        </div>
+        
+        <div id='foto'>
+            <img id="imagem" src="manha.png" alt="Foto do dia">
+        </div>
+
+    </section>
+
+
+    <footer>
+        <p> &copy; Kenin Monstrão </p>
+    </footer>
+
+    <script>
+
+        function construct(){
+            var msg = document.getElementById("mensagem");
+            var img = document.getElementById("imagem");
+            var data = new Date();
+            var hora = data.getHours();
+            var min = data.getMinutes();
+
+            if(hora >= 0 && hora < 12){ // Manha
+                img.src = 'manha.png';
+                msg.innerHTML = `Bom Dia :) são ${hora}:${min}!`;
+                window.document.body.style.backgroundColor = "#decb40";
+
+            }else if(hora < 18){
+                img.src = 'tarde.png';
+                msg.innerHTML = `Boa tarde :) são ${hora}:${min}!`;
+                window.document.body.style.backgroundColor = "#ed915f";
+            }else{
+                img.src = 'noite.png';
+                msg.innerHTML = `Boa noite :) são ${hora}:${min}!`;
+                window.document.body.style.backgroundColor = "#465054";
+            }
+        }
+        
+
+        
+
+    </script>
+
+</body>
+</html>

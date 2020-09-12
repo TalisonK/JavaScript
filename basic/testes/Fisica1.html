@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fisica</title>
+    <style>
+        body{
+
+background: rgb(76, 76, 252);
+font: normal 15pt Arial;
+}
+
+header{
+
+color: white;
+text-align: center;
+}
+
+section{
+
+content: "";
+float: left;
+display: table;
+background: whitesmoke;
+border-radius: 10px;
+padding: 15px;
+width: 70%;
+margin: auto;
+box-shadow: 3px 4px 10px rgba(0, 0, 0, 0.404);
+}
+
+label{
+visibility: hidden;
+}
+
+.R{
+padding: 25px;
+margin: auto;
+}
+
+.respostas{
+text-align: center;
+width: 20%;
+content: "";
+float: left;
+display: table;
+background: whitesmoke;
+border-radius: 10px;
+padding: 15px;
+margin: auto;
+box-shadow: 3px 4px 10px rgba(0, 0, 0, 0.404);
+}
+
+.imagem{
+visibility: hidden;
+}
+
+    </style>
+</head>
+<body onload="carregar()">
+
+    <header>
+        <h1 id="titulo">.</h1>
+    </header>
+
+    <section>
+        <p id="pergunta"></p>
+        <div>
+            <img class="imagem" id="imagem" alt="Imagem opcional">
+        </div>
+    </section>
+    <section id="res" class="respostas">
+        
+
+        
+        <div id="botao" class="R">
+            <input type="button" value="Responder" id="bResp" onclick="resposta()">
+        </div>
+    </section>
+    <script>
+        function carregar(){
+
+//Constantes do HTML para serem preenchidas pelos dados da questao
+
+const titulo = document.getElementById("titulo");
+const pergunta = document.getElementById("pergunta");
+const respostas = document.getElementById("res");
+const img = document.getElementById("imagem");
+const botao = document.getElementById("botao");
+
+//Variaveis da questao para serem recebidas pelo script
+let imagem = '';
+let texto = "";
+let alternativas = {};
+
+//Aquisição dos valores das variaveis essenciais
+
+
+texto = "Veja a figura abaixo e marque a alternativa que representa a imagem formada pelos objetos (letra N e relógio) quando colocado diante de um espelho plano.";
+imagem = 'quest.jpg';
+
+let aux = ["https://s1.static.brasilescola.uol.com.br/be/conteudo/images/questao-3-a.jpg", 
+            "https://s1.static.brasilescola.uol.com.br/be/conteudo/images/questao-3-b.jpg",
+            "https://s1.static.brasilescola.uol.com.br/be/conteudo/images/questao-3-c.jpg",
+            "https://s1.static.brasilescola.uol.com.br/be/conteudo/images/questao-3-d.jpg",
+            "https://s1.static.brasilescola.uol.com.br/be/conteudo/images/questao-3-e.jpg"];
+
+for (let i = 0; i < 5; i++){
+    let c = "a" + i;
+    alternativas[c] = aux[i];
+}
+
+
+// condições da preparação da tela
+
+if(imagem === "" && texto === ""){
+    alert('Nenhuma questão foi recebida');
+}
+
+
+// aquisição dos dados
+
+titulo.innerHTML = "Questão 1";
+pergunta.innerText = texto;
+
+
+if(imagem != ""){
+    img.style.visibility = "visible";
+    img.src = imagem;
+}
+
+for(let alt in alternativas){
+
+    let divnova = document.createElement("div");
+    divnova.class = "R";
+
+
+    let check = document.createElement("input");
+    check.type = "radio";
+    check.name = "alternativas";
+    check.id = "c" + alt;
+
+    divnova.appendChild(check);
+    let resp
+    if(alternativas[alt].substring(0,4) === "http"){
+        titulo.innerHTML = "Questão 2";
+        resp = document.createElement("img");
+        resp.id = alt;
+        resp.src = alternativas[alt];
+
+    }else{
+        resp = document.createElement("label");
+        resp.innerText = alternativas[alt];
+        resp.for = "c" + alt;
+        resp.id = alt;
+    }
+
+    divnova.appendChild(resp);
+
+    respostas.insertBefore(divnova, botao);
+}
+}
+
+function resposta(){
+let npertou = true;
+for(let i = 0; i < 100; i++){
+    let d = document.getElementById("ca"+i);
+    if(d.checked){
+        if(i == 2){alert("acertou");}
+        else{alert("errou")}
+        npertou = false;
+    }
+}
+if(npertou){alert("nenhuma opção selecionada!")}
+
+}
+    </script>
+
+</body>
+</html>

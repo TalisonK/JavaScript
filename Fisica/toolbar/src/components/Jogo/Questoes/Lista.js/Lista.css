@@ -1,0 +1,19 @@
+.lista h1{
+    font: 1.5rem sans-serif bold;
+
+}
+
+.lista div{
+    font: 1em sans-serif;
+    padding: 5px;
+}
+
+.lista{
+    background-color: rgb(47, 82, 46);
+    width: 10%;
+    float: left;
+    font: 1em sans-serif;
+    text-align: center;
+    height: 100vh;
+    color: white;
+}

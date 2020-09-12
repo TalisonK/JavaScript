@@ -1,0 +1,140 @@
+.toolbar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    background: #4c504c;
+    height: 50px;
+  }
+  
+  .toolbar__navigation {
+    display: flex;
+    height: 100%;
+    align-items: center;
+    padding: 0 1rem;
+  }
+  
+  .toolbar__logo {
+    color: white;
+    text-decoration: none;
+    font-size: 1.5rem;
+    min-width: 165px;
+  }
+  
+  .spacer{
+    flex: 1;
+  }
+
+  .spacer2{
+    flex: 1;
+  }
+
+
+  .time{
+      color: white;
+      font: 1.5rem sans-serif;
+  }
+  
+  .toolbar_navigation-items ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+  }
+  
+  .toolbar_navigation-items li {
+    padding: 5px 10px;
+    border-radius: 5px;
+    background: rgb(13, 185, 13);
+  }
+
+  .toolbar_navigation-items li:hover{
+    border-color: #fa923f;
+    }
+
+  .toolbar_navigation-items li:active{
+    background: green;
+  }
+
+  .placar__button{
+    margin-right: 5px;
+  }
+  
+  .toolbar_navigation-items a {
+    color: white;
+    text-decoration: none;
+  }
+  
+
+  @media (max-width: 768px) {
+    .toolbar_navigation-items {
+      display: none;
+    }
+    .time{
+      right: 0;
+    }
+    .spacer2{
+      display: none;
+    }
+  }
+  
+  @media (min-width: 769px) {
+  
+    .toolbar__logo {
+      margin-left: 0;
+    }
+  }
+  
+
+
+/* .toolbar{
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 50px;
+    position: fixed;
+    background-color: rgb(75, 75, 80);
+}
+
+.toolbar__navegation{
+    height: 100%;
+    display: flex;
+    padding: 0 1rem;
+    align-items: center;
+}
+
+.toolbar__logo{
+    margin-left: 1rem;
+}
+
+.toolbar__logo a{
+    color: white;
+    font-size: 1.5rem;
+    text-decoration: none;
+
+}
+
+.spacer{
+    flex: 1;
+}
+
+.toolbar_navegation-items ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+}
+
+.toolbar_navegation-items li{
+    padding: 0 0.5rem;
+}
+
+.toolbar_navegation-items a{
+    color: white;
+    text-decoration: none;
+}
+
+.toolbar_navegation-items a:hover,
+.toolbar_navegation-items a:active {
+    color: #ffae19;
+} */

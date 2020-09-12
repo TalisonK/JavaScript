@@ -1,0 +1,30 @@
+.toolbar__toggle-button{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    height: 20px;
+    width: 25px;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    padding: 0;
+    box-sizing: border-box;
+    margin-right: 7px;
+}
+
+.toolbar__toggle-button:focus{
+    outline: none;
+}
+
+.toggle-button-line {
+    width: 25px;
+    height: 2px;
+    background: white;
+    border-radius: 10px;
+}
+
+@media (min-width: 769px) {
+    .toolbar__toggle-button {
+      display: none;
+    }
+}

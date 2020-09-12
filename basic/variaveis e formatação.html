@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Meu programa</title>
+    <style>
+        body {
+            background-color: rgb(102, 182, 82);
+            color: white;
+            font: normal 14pt Arial;
+        }
+        
+        h1 {
+            color: black;
+        }
+    </style>
+
+</head>
+
+<body>
+    <h1>olá, mundo!</h1>
+    <p1>texto </p1>
+
+    <script>
+        var n1 = Number(prompt('Digite um numero:'));
+        var n2 = Number(prompt('Digite outro numero:'));
+        var n3 = n1 + n2;
+        alert(`a soma ${n1} + ${n2} = ${n3}`);
+        document.write(n1.toLocaleString('pt-BR', {
+            style: 'currency',
+            currency: 'BRL'
+        }));
+    </script>
+
+</body>
+
+</html>
