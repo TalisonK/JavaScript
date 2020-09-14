@@ -13,8 +13,10 @@
 
 //Mongoose
 
-    const mongo = require("./services/database.services");
-    mongo.establishConnection().connection.on("connected", () => { console.log("Conectado ao database! :)")} )
+    const {establishConnection} = require("./services/database.services");
+    const mongoose = establishConnection();
+    mongoose.connection.on("connected", () => { console.log("Conectado ao database! :)")})
+
 
 //Client permissions
     App.use(cors());

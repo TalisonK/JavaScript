@@ -1,15 +1,14 @@
 import React from 'react';
 
 import { Button, Form, FormGroup, Label, Input, Jumbotron } from 'reactstrap';
-import login from '../services/login.services';
+import register  from '../../services/register.services';
 
-import "../styles/login.styles.css"
+import "../../styles/login.styles.css"
 
-function form() {
-    return (
-        <Jumbotron className="form_jumbo">
+export const Register= () => (
+    <Jumbotron className="form_jumbo">
             <Form className="login-form bg-gray">
-                <h1 className="font-weight-bold">Login</h1>
+                <h1 className="font-weight-bold">Register</h1>
                 <FormGroup>
                     <Label>Email</Label><br/>
                     <Input id= "emailinput" type="email" placeholder="Email" />
@@ -18,16 +17,10 @@ function form() {
                     <Label>Password</Label><br/>
                     <Input id="passwordinput" type="password" placeholder="Password"/>
                 </FormGroup>
-                <Button className="btn-lg btn-dark btn-block" onClick={() => {login()}}> Log in </Button>
+                <Button className="btn-lg btn-dark btn-block" onClick={() => {register()}}> Sign up </Button>
                 <div className="login-links">
-                    <a href="/register">sign up</a> 
-                    <span className="p">|</span>
-                    <a href="/forgot">Forgot password?</a>
+                    <a href="/">Sign in</a> 
                 </div>
             </Form>
         </Jumbotron>
-        
-    )
-}
-
-export default form;
+)

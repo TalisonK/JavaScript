@@ -1,34 +1,29 @@
 const mongoose = require("mongoose");
 
-const mettingSchema = new mongoose.Schema({
+const MettingSchema = new mongoose.Schema({
 
     name:{
         type:String
     },
 
-    descricao:{
+    description:{
         type:String
     },
 
-    sala:{
+    room:{
         type:String
     },
 
-    horario:{
+    schedule:{
         type:String
     },
 
-    criador:{
+    owner:{
         type:String,
     },
 
-    participantes:{
+    members:{
         type:Array,
-        default:false
-    },
-
-    confirmedEmail:{
-        type:Boolean,
         default:false
     },
     
@@ -38,6 +33,6 @@ const mettingSchema = new mongoose.Schema({
     }
 })
 
-const Mettings = mongoose.model("Metting", UserSchema);
+const Mettings = mongoose.model("Metting", MettingSchema);
 
 module.exports = Mettings;

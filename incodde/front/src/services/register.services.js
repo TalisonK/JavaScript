@@ -5,22 +5,20 @@ import validator from 'validator';
 const url = "http://localhost:3030";
 
 //auxiliar method
-const authenticate = (props) => {
-    return validator.isEmail(props.email) && validator.isAlphanumeric(props.password) && props.password.length >= 6;
+const authenticate = (email, password) => {
+    return validator.isEmail(email) && validator.isAlphanumeric(password) && password.length >= 6;
 }
 
-async function register(){
+async function registrator(){
 	try{
 		const email = document.getElementById("emailinput").value;
         const password = document.getElementById("passwordinput").value;
-        let err = authenticate({ email:email, password:password });
+        let err = authenticate(email, password );
 		if(err){
 			let data = {
 				email:email,
 				password:password
 			}
-			console.log(email)
-			console.log(password)
 			
 			const response = await axios.post(url + "/register", data, {
                 headers: {
@@ -34,4 +32,4 @@ async function register(){
 	}
 }
 
-export default register;
+export default registrator;

@@ -1,37 +1,57 @@
-const User = require("../Database/models/User");
-const { createUser, hasUser, fetchUser, validateUser } = require("../services/user.services");
+const User = require("../database/models/User");
+const { fetchUser, validateUser, check } = require("../services/user.services");
 const mailGen = require("../services/emailhandler.services");
 
 const tokenStorage = {};
 
-function emailVerify(email){
+const emailConfirmationCheck = (email) =>{
     const data = fetchUser(email);
     if ( data.confirmedEmail ) return true;
     return false;
 }
 
-function createToken(props){
-    tokenStorage[props.email] = Math.floor(100000 + Math.random() * 900000);
-    mailGen(props.email, tokenStorage[props.email], props.message);
+const createConfirmToken = (email) =>{
+    tokenStorage[email] = Math.floor(100000 + Math.random() * 900000);
+    mailGen(email, tokenStorage[email], "Email confirmation");
 }
 
-function verify(email, token){
-    console.log(tokenStorage[email]);
-    if(tokenStorage[email] === token){
-        validateUser(email);
-        delete tokenStorage[email];
-        return true;
+const authenticateEmail = (req, res) =>{
+    try{
+        console.log(tokenStorage[req.body.email]);
+        if(tokenStorage[req.body.email] === req.body.token){
+            validateUser(req.body.email);
+            tokenStorage[req.body.email] = undefined;
+            res.status(202).send({status: "Email confirmado com sucesso! :)", validation: 1});
+        }
+        else{
+            res.status(203).send({ status:"Código inválido!", validation: 0 })
+        }
     }
-    return false;
-}
-
-function getToken(email) {
-    return tokenStorage[email];
+    catch(err){
+        res.status(203).send({ status:"Erro ao verificar o email.", validation:0 })
+    }
     
 }
 
-async function check(email){
-    return await User.findOne({email:email}).confirmedEmail;
+const resendConfirmation = (req, res) => {
+    try{
+        tokenStorage[req.body.email] = Math.floor(100000 + Math.random() * 900000);
+        mailGen(req.body.email, tokenStorage[req.body.email], req.body.message);
+        res.status(200).send({ status: "Código enviado para o email" + req.body.email })
+    }
+    catch(err){
+        console.log(err);
+    }
 }
 
-module.exports = { emailVerify, createToken, verify, getToken, check, mailGen };
+const checkEmail = async (req, res) => {
+    const cond = await check(req.body.email);
+    if(cond){
+        res.status(200).send({ status: true });
+    }
+    else{
+        res.status(200).send({ status: false });
+    }
+}
+
+module.exports = { emailConfirmationCheck, createConfirmToken, authenticateEmail, resendConfirmation, mailGen, checkEmail };

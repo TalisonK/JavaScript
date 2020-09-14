@@ -2,18 +2,31 @@ import axios from 'axios';
 
 const url = "http://localhost:3030";
 
-export default async function resetpassword(){
-    const email = document.getElementById("emailinput").value;
+const email = "";
+
+export const resetpassword = async () => {
+    email = document.getElementById("emailinput").value;
     let data = {
         email:email,
-        message:"ResetPassword"
+        message:"Resend Confirmation"
     }
-    
-    const response = await axios.post(url + "/emailvalidate", data, {
+    const response = await axios.post(url + "/home/emailvalidate", data, {
         headers: {
             'Content-Type': 'application/json'
         }
     })
+}
 
-    console.log(response.status);
+export const validating = async() => {
+    const token = document.getElementById("validateinput").value;
+    let data = {
+        email:email,
+        token:token
+    }
+
+    const response = await axios.post(url + "/validation", data, {
+        headers: {
+            'Content-Type': 'application/json'
+        }
+    })
 }

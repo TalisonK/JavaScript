@@ -1,6 +1,13 @@
+//Required Modules
 import axios from 'axios';
 
-export default async function authenticated(props, url) {
+// Server URL
+const url = "http://localhost:3030";
+
+const authConfig = require("../config/auth.json");
+
+/*
+export const authenticated = async(props, url) => {
     const data = {
         email:props.email
     }
@@ -9,5 +16,20 @@ export default async function authenticated(props, url) {
         headers: {
             'Content-Type': 'application/json'
         }
-    }) 
+    })
+    
+    console.log(response.status);
 } 
+*/
+
+export const isloged = async () => {
+
+    const response = await axios.get(url + "/home/auth", {}, {
+        headers: {
+            'authorization':authConfig.token,
+            'Content-Type': 'application/json'
+        }
+    })
+    console.log(response.data.validate)
+    return (response.data.validate)
+}

@@ -1,9 +1,14 @@
+//Required Modules
 const express = require("express");
 const router = express.Router();
 
-const emailController = require('../../Controllers/email.controller');
+//Required methods
+const controller = require("../../Controllers/menu.controller");
+const authMiddleware = require("../../middlewares/auth.middlewares");
 
-router.post("/emailvalidate", emailController.createToken );
+router.use(authMiddleware);
+
+router.get("/auth", controller.teste);
 
 
 module.exports = router;

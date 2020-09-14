@@ -9,7 +9,7 @@ const UserSchema = new mongoose.Schema({
 
     password:{
         type:String,
-        required:true,
+        required:true
     },
 
     name:{
@@ -20,15 +20,15 @@ const UserSchema = new mongoose.Schema({
         type:Number
     },
 
-    dataDeNascimento:{
+    birthday:{
         type:Date
     },
 
-    endereço:{
+    adress:{
         type:String
     },
 
-    biografia:{
+    biografy:{
         type:String,
     },
 

@@ -5,7 +5,7 @@ require("dotenv/config");
 const mailSender = {
     service:"gmail",
     auth:{
-        user:"kenouen1@gmail.com",
+        user:process.env.EmailSender,
         pass:process.env.Emailpassword
     }
 }
@@ -16,7 +16,7 @@ let transporter = nodemailer.createTransport(mailSender);
 const mailer = (email, token, message) => {
     try{
         let mailOptions = {
-            from:"kenouen1@gmail.com",
+            from:process.env.EmailSender,
             to:email,
             subject:message?message:"Email confirmation",
             text:" Your code is " + token
