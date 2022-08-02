@@ -1,0 +1,37 @@
+function reverseString(str) {
+    var splitString = str.split("");
+    var reverseArray = splitString.reverse();
+    var joinArray = reverseArray.join("");
+    
+    //Step 4. Return the reversed string
+    return joinArray; // "olleh"
+}
+
+const pinHandler = (e) => {
+
+  // e = 1.231.232.530,25
+  //e = 520352
+
+  let g = ""
+
+  f = reverseString(e)
+
+  cont = 0
+  
+  for (let i of f.replace(/\D/g,"")){
+    if ( cont === 2 && g.length === 2 && i !== ""){
+      g += "," + i
+      cont = 0
+    } else if ( cont === 3 ){
+      g += "." + i
+      cont = 0
+    } else {
+      g += i
+    }
+    cont++
+  }
+
+  return reverseString(g)
+}
+
+console.log(pinHandler("64,55"))
